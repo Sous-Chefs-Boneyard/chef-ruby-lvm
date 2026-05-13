@@ -59,7 +59,24 @@ module LVM
     end
 
     def version
-      /^(.*?)(-| )/.match(userland.lvm_version)[1]
+      self.class.parse_version(userland.lvm_version.to_s)
+    end
+
+    # Extracts the canonical "X.Y.Z" or "X.Y.Z(N)" version key used to look up
+    # attribute YAML files in chef-ruby-lvm-attrib, tolerating known variations
+    # in the `lvm version` output across distributions and releases.
+    #
+    # Examples:
+    #   "2.03.28(2)-RHEL10 (2024-11-04)" => "2.03.28(2)"  # classic format
+    #   "2.03.32(2-RHEL10) (2025-05-05)" => "2.03.32(2)"  # RHEL 10 format
+    #   "2.02.180(2)-RHEL7 (2018-07-20)" => "2.02.180(2)"
+    #   "2.03.40"                        => "2.03.40"     # no build suffix
+    def self.parse_version(raw)
+      m = raw.to_s.match(/(\d+\.\d+\.\d+)(?:\((\d+))?/)
+      return raw.to_s if m.nil?
+
+      # If build is captured, then return "X.Y.Z(N)" else "X.Y.Z"
+      m[2] ? "#{m[1]}(#{m[2]})" : m[1]
     end
 
     # helper methods
