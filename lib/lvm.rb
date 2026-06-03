@@ -59,7 +59,16 @@ module LVM
     end
 
     def version
-      /^(.*?)(-| )/.match(userland.lvm_version)[1]
+      self.class.parse_version(userland.lvm_version)
+    end
+
+    # Extract the canonical X.Y.Z or X.Y.Z(N) version key used by
+    # chef-ruby-lvm-attrib attribute directories.
+    def self.parse_version(raw)
+      match = raw.to_s.match(/(\d+\.\d+\.\d+)(?:\((\d+))?/)
+      return raw.to_s if match.nil?
+
+      match[2] ? "#{match[1]}(#{match[2]})" : match[1]
     end
 
     # helper methods
