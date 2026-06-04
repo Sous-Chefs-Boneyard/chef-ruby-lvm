@@ -20,9 +20,9 @@ end
 lvm.raw("lvcreate --snapshot --size 10M --name #{snap} #{vol}")
 lv = lvm.logical_volumes[snap]
 
-out = <<MSG
-snapshot of #{vol}, #{snap}, created
-- uuid: #{lv.uuid}
-- major,minor: #{lv.kernel_major},#{lv.kernel_minor}
+out = <<~MSG
+  snapshot of #{vol}, #{snap}, created
+  - uuid: #{lv.uuid}
+  - major,minor: #{lv.kernel_major},#{lv.kernel_minor}
 MSG
 puts out

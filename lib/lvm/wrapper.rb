@@ -40,9 +40,8 @@ module LVM
       module_function :process_line
 
       def build_command(expected_attributes, base, additional_arguments = [])
-        opts = []
-        expected_attributes.each do |a|
-          opts << a[:column]
+        opts = expected_attributes.map do |a|
+          a[:column]
         end
 
         additional_arguments = [] if additional_arguments.nil?

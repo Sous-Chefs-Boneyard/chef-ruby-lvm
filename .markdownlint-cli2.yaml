@@ -3,3 +3,6 @@ config:
   line-length: false # MD013
   no-duplicate-heading: false # MD024
   reference-links-images: false # MD052
+ignores:
+  - .github/ISSUE_TEMPLATE/*
+  - .github/PULL_REQUEST_TEMPLATE.md
