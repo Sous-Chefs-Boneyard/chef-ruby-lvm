@@ -4,6 +4,7 @@ name: release-please
 "on":
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   release-please:
@@ -11,22 +12,23 @@ jobs:
     steps:
       - uses: googleapis/release-please-action@v5
         id: release
+        if: github.event_name != 'workflow_dispatch'
         with:
           token: ${{ secrets.PORTER_GITHUB_TOKEN }}
 
       - name: Checkout
         uses: actions/checkout@v6
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
 
       - name: Build and publish to GitHub Package
         uses: actionshub/publish-gem-to-github@main
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: ${{ secrets.OWNER }}
 
       - name: Build and publish to RubyGems
         uses: actionshub/publish-gem-to-rubygems@main
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
         with:
           token: ${{ secrets.RUBYGEMS_API_KEY }}
