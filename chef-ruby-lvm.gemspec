@@ -9,11 +9,10 @@ Gem::Specification.new do |gem|
   gem.summary       = "A wrapper for the LVM2 administration utility, lvm."
   gem.homepage      = "https://github.com/chef/chef-ruby-lvm"
   gem.files         = `git ls-files`.split($\)
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "chef-ruby-lvm"
   gem.require_paths = ["lib"]
   gem.version       = LVM::VERSION
 
-  gem.add_runtime_dependency "chef-ruby-lvm-attrib", ">= 0.3"
-  gem.add_runtime_dependency "open4", ">= 0.9.6", "< 2.0"
+  gem.add_dependency "chef-ruby-lvm-attrib", ">= 0.3"
+  gem.add_dependency "open4", ">= 0.9.6", "< 2.0"
 end
