@@ -1,5 +1,12 @@
 # Change log
 
+## [0.4.4](https://github.com/sous-chefs/chef-ruby-lvm/compare/v0.4.3...v0.4.4) (2026-06-04)
+
+
+### Bug Fixes
+
+* Add release please ([#17](https://github.com/sous-chefs/chef-ruby-lvm/issues/17)) ([e1d174f](https://github.com/sous-chefs/chef-ruby-lvm/commit/e1d174f3b61f9434d2806d31550f0d1a52483419))
+
 ## 0.4.3
 
 - Update open4 requirement
