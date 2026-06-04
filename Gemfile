@@ -4,7 +4,7 @@ gemspec
 
 group :development do
   gem "base64"
-  gem "chefstyle"
+  gem "cookstyle"
   gem "minitest"
   gem "ostruct"
   gem "rake"

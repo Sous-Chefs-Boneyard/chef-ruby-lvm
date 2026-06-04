@@ -1,6 +1,9 @@
 ---
-driver: { name: exec }
-transport: { name: exec }
+driver:
+  name: exec
+
+transport:
+  name: exec
 
 platforms:
   - name: macos-latest

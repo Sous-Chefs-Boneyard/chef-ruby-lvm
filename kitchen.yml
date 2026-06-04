@@ -3,8 +3,8 @@ driver:
   name: vagrant
 
 provisioner:
-  name: chef_infra
-  product_name: chef
+  name: cinc_infra
+  product_name: cinc
   product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
   chef_license: accept-no-persist
 
