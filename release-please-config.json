@@ -1,0 +1,11 @@
+{
+  "packages": {
+    ".": {
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "ruby",
+      "include-component-in-tag": false,
+      "version-file": "lib/lvm/version.rb"
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+}
