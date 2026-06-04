@@ -14,6 +14,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = LVM::VERSION
 
-  gem.add_runtime_dependency "chef-ruby-lvm-attrib", "~> 0.3"
+  gem.add_runtime_dependency "chef-ruby-lvm-attrib", ">= 0.3"
   gem.add_runtime_dependency "open4", ">= 0.9.6", "< 2.0"
 end
