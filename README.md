@@ -1,5 +1,7 @@
 # chef-ruby-lvm
 
+DEPRECATED! This gem is no longer needed for the lvm cookbook v7.x+. Please migrate to using the latest version of the cookbook.
+
 [![Gem Version](https://badge.fury.io/rb/chef-ruby-lvm.svg)](https://badge.fury.io/rb/chef-ruby-lvm)
 
 This is a fork of the chef-ruby-lvm gem found at <https://github.com/gregsymons/di-ruby-lvm>. The primary difference from upstream is that it depends on chef-ruby-lvm-attrib instead of di-ruby-lvm-attrib. It was in turn forked from ruby-lvm. This adds support for lvm version 2.02.66(2) and later.
